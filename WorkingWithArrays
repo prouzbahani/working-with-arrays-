@@ -1,0 +1,125 @@
+
+
+public class arrays {
+
+	public static boolean CenteredArray(int[] intArray) {
+
+		if ((intArray.length % 2) == 0)
+			return false;
+
+		int middEleIndex = (intArray.length / 2);
+
+		for (int i = 0; i < intArray.length; i++) {
+
+			if ((intArray[i] <= intArray[middEleIndex]) && (i != middEleIndex))
+				return false;
+
+		}
+		return true;
+
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	public static int SubmissionOddAndEven(int[] array) {
+		int x = 0, y = 0;
+
+		for (int i : array) {
+
+			if (i % 2 == 0)
+				y = y + i;
+			else
+				x = x + i;
+		}
+		return x - y;
+
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	public static char[] SubArray(char[] inputchar, int start, int length) {
+
+		char subarray[] = new char[length];
+
+		if ((inputchar.length < length) || (start < 0))
+			return subarray;
+
+		for (int i = start; i <= length - 1; i++) {
+			subarray[i] = inputchar[i];
+
+		}
+		return subarray;
+	}
+
+	/////////////////////////////////////////////
+
+	public static int reversenumber(int number) {
+		int DivideCount = String.valueOf(number).length();
+		String result = "";
+
+		for (int i = 1; i <= DivideCount; i++) {
+			result = result + String.valueOf((number % 10));
+			number = number / 10;
+		}
+		return Integer.valueOf(result);
+
+	}
+
+	/////////////////////////////////////////////////////////////
+
+	public static int[] CommonArray(int[] first, int[] second) {
+
+		if (first == null || second == null)
+			return null;
+
+		int tempSize = (first.length < second.length) ? first.length : second.length;
+
+		int[] temp = new int[tempSize];
+		int k = 0;
+		for (int i : first)
+			for (int j : second) {
+
+				if (i == j) {
+					temp[k] = i;
+					k = k + 1;
+				}
+			}
+
+		int[] result = new int[k];
+
+		if (k != 0) {
+			for (int a = 0; a < k; a++) {
+				result[a] = temp[a];
+			}
+
+		}
+
+		return result;
+
+	}
+
+
+////////////////////////////////////////////////////////////
+
+	public static int equilibrium(int[] array) {
+		int A = 0;
+		int B = 0;
+		int result = -1;
+		for (int i = 0; i < array.length - 2; i++) {
+			A = A + array[i];
+			B = 0;
+			for (int j = i + 2; j < array.length; j++) {
+
+				B = B + array[j];
+
+				if (A == B && j == array.length - 1)
+					return i + 1;
+
+			}
+		}
+
+		return result;
+	}
+
+
+
